@@ -1,10 +1,8 @@
 package uvsq_master1_gl.exo_4;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 
 public final class PERSONNE {
@@ -13,22 +11,47 @@ public final class PERSONNE {
 	private final fonction fonction ;
 	private final LocalDate dateNaissance;
 	private final List<NumeroTelephone> numerosTelephone;
-public static class PersonnelBuilder {
+public static class PERSONNEBuilder {
 		
 		
 		private final String nom;
 		private final String prenom;
-		//private final uvsq_master1_gl.exo_4.fonction fonction;
-		
-		// Optionnel
+	
 		private LocalDate dateNaissance = null;
 		private List<NumeroTelephone> numerosTelephone = new ArrayList<NumeroTelephone>();
 		private uvsq_master1_gl.exo_4.fonction fonction;
 		
-		public PersonnelBuilder(String nom, String prenom) {
-			this.nom = nom;
+		public PERSONNEBuilder(String nom, String prenom) {
 			this.prenom = prenom;
+			this.nom = nom;
 		}
+		public PERSONNEBuilder fonction( uvsq_master1_gl.exo_4.fonction fonction) {
+			this.fonction = fonction;
+			return this;
+		}
+		
+		public PERSONNEBuilder dateNaissance(LocalDate dateNaissance) {
+			this.dateNaissance = dateNaissance;
+			return this;
+		}
+		
+		public PERSONNEBuilder addNumeroTelephone(NumeroTelephone numeroTelephone) {
+			this.numerosTelephone.add(numeroTelephone);
+			return this;
+		}
+		
+		public PERSONNE build() {
+			return new PERSONNE(this);
+		}
+	}
+	
+	private PERSONNE(PERSONNEBuilder builder) {
+	
+		nom = builder.nom;
+		prenom = builder.prenom;
+		fonction = builder.fonction;
+		dateNaissance = builder.dateNaissance;
+		numerosTelephone = builder.numerosTelephone;
 	}
 
 

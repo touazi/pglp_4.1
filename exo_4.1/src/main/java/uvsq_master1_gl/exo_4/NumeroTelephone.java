@@ -18,9 +18,7 @@ public class NumeroTelephone {
 	public String getTelephone() {
 		return telephone;
 	}
-	public void setType(Type type) {
-		this.type = type;
-	}
+
 
 	
 
