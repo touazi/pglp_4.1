@@ -31,6 +31,16 @@ import org.junit.Test;
 		}
 		
 		
+		@Test()
+		public void testGetNom() {
+			assertEquals(personne.getNom(), "TOUAZI");
+		}
+		
+		@Test()
+		public void testprenom() { assertEquals(personne.getPrenom(), "LYLIA");}
+		
+		
+		
 		 @After
 		  public void nettoyer() throws Exception {
 		    personne = null;
