@@ -13,7 +13,7 @@ import org.junit.Test;
 
 	
 	public class PersonnelTest {
-
+		
 		private PERSONNE personne;
 		
 		@Before()
@@ -25,6 +25,7 @@ import org.junit.Test;
 					.addNumeroTelephone(new NumeroTelephone( Type.portable, "0667721010"))
 					.addNumeroTelephone(new NumeroTelephone( Type.fix_pro, "0667721012"))
 					.build();	
+			
 			
 		}
 		

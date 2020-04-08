@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public final class PERSONNE {
+public final class PERSONNE implements ComportementPersonnel{
 	private final String nom ;
 	private final String prenom ;
 	private final fonction fonction ;
@@ -19,13 +19,13 @@ public static class PERSONNEBuilder {
 	
 		private LocalDate dateNaissance = null;
 		private List<NumeroTelephone> numerosTelephone = new ArrayList<NumeroTelephone>();
-		private uvsq_master1_gl.exo_4.fonction fonction;
+		private fonction fonction;
 		
 		public PERSONNEBuilder(String nom, String prenom) {
 			this.prenom = prenom;
 			this.nom = nom;
 		}
-		public PERSONNEBuilder fonction( uvsq_master1_gl.exo_4.fonction fonction) {
+		public PERSONNEBuilder fonction( fonction fonction) {
 			this.fonction = fonction;
 			return this;
 		}
@@ -53,6 +53,14 @@ public static class PERSONNEBuilder {
 		dateNaissance = builder.dateNaissance;
 		numerosTelephone = builder.numerosTelephone;
 	}
+	@Override
+	public void print() {
+
+		System.out.println("  Je suis "+this.nom+" "+this.prenom+"  née le  "+this.dateNaissance +" et je travaille comme "+this.fonction) ;
+
+		
+
+	}
 
 
 	public String getNom() {
@@ -79,10 +87,6 @@ public static class PERSONNEBuilder {
 		return numerosTelephone;
 	}
 	
-	/*@Override
-	public boolean isGroupe() {
-		return false;
-	}
-	*/
+
 	
 }
