@@ -2,7 +2,7 @@ package uvsq_master1_gl.exo_4;
 
 import java.util.ArrayList;
 
-public class GroupePersonnel implements ComportementPersonnel {
+public class GroupePersonnel implements ComportementPersonnel  {
 	private final ArrayList<ComportementPersonnel> listepersonnel ;
 	public GroupePersonnel() {
 		listepersonnel = new ArrayList<ComportementPersonnel>();
@@ -17,8 +17,11 @@ public class GroupePersonnel implements ComportementPersonnel {
 	
 	
 
-	public void SuprimerPersonnel(ComportementPersonnel p) {
+	public void SuprimerPersonnel(ComportementPersonnel p) throws  IllegalArgumentException{
+		if(this.listepersonnel.contains(p)) {
 		this.listepersonnel.remove(p);}
+		else {throw new IllegalArgumentException("la personne que vous voulez suprimer n'éxiste pas.");}
+		}
 
 	
 	public ArrayList<ComportementPersonnel> getlistepersonnel() {
