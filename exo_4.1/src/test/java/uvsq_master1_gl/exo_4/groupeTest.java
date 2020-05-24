@@ -18,18 +18,18 @@ public class groupeTest {
 	public void setUp() {
 	    p1 = new PERSONNEBuilder("TOUAZI", "LYLIA")
 				.dateNaissance(LocalDate.parse("1997-04-22"))
-				.fonction(fonction.directeur)
-				.addNumeroTelephone(new NumeroTelephone( Type.fix_pro, "0667721012"))
+				.fonction(Fonction.directeur)
+				.addNumeroTelephone(new NumeroTelephone( Type.fixpro, "0667721012"))
 				.build();	
 	    p2 = new PERSONNEBuilder("hamouche", "koussaila")
 				.dateNaissance(LocalDate.parse("1995-12-18"))
-				.fonction(fonction.directeur)
-				.addNumeroTelephone(new NumeroTelephone( Type.fix_perso, "0104050506"))
+				.fonction(Fonction.directeur)
+				.addNumeroTelephone(new NumeroTelephone( Type.fixperso, "0104050506"))
 				.build();
 	    p3 = new PERSONNEBuilder("Siham", "ouchen")
 				.dateNaissance(LocalDate.parse("1995-01-12"))
-				.fonction(fonction.directeur)
-				.addNumeroTelephone(new NumeroTelephone( Type.fix_perso, "0666745923"))
+				.fonction(Fonction.directeur)
+				.addNumeroTelephone(new NumeroTelephone( Type.fixperso, "0666745923"))
 				.build();
 	    g=new GroupePersonnel();
 		
@@ -37,21 +37,21 @@ public class groupeTest {
 	
 	@Test
 	public void ajouetertest() {
-		g.AjouterPersonnel(p1);
-	    g.AjouterPersonnel(p2);
+		g.ajouterPersonnel(p1);
+	    g.ajouterPersonnel(p2);
 	    assertEquals(g.getlistepersonnel().size(), 2);
 	}
 	@Test
 	public void suprimertest() {
-		g.AjouterPersonnel(p1);
-	    g.AjouterPersonnel(p2);
-	    g.SuprimerPersonnel(p1);
+		g.ajouterPersonnel(p1);
+	    g.ajouterPersonnel(p2);
+	    g.suprimerPersonnel(p1);
 	    assertEquals(g.getlistepersonnel().size(), 1);
 	}
-	 
+	 /*
 	@Test(expected = IllegalArgumentException.class)
 	public void suprimertestException() {
-		 g.SuprimerPersonnel(p1);
-		}
+		 g.suprimerPersonnel(p1);
+		}*/
 
 }

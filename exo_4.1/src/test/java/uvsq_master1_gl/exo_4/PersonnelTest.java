@@ -20,10 +20,10 @@ import org.junit.Test;
 		public void setUp() {
 			personne = new PERSONNEBuilder("TOUAZI", "LYLIA")
 					.dateNaissance(LocalDate.parse("1997-04-22"))
-					.fonction(fonction.directeur)
-					.addNumeroTelephone(new NumeroTelephone( Type.fix_perso, "0104050506"))
+					.fonction(Fonction.directeur)
+					.addNumeroTelephone(new NumeroTelephone( Type.fixperso, "0104050506"))
 					.addNumeroTelephone(new NumeroTelephone( Type.portable, "0667721010"))
-					.addNumeroTelephone(new NumeroTelephone( Type.fix_pro, "0667721012"))
+					.addNumeroTelephone(new NumeroTelephone( Type.fixpro, "0667721012"))
 					.build();	
 			
 			
@@ -39,14 +39,14 @@ import org.junit.Test;
 		public void testprenom() { assertEquals(personne.getPrenom(), "LYLIA");}
 		
 		@Test()
-		public void testfonction() { assertEquals(personne.getFonction(), fonction.directeur);}
+		public void testfonction() { assertEquals(personne.getFonction(), Fonction.directeur);}
 		@Test()
 		public void testfonction1() {
-			NumeroTelephone t=new NumeroTelephone (Type.fix_perso,"0667721012");
+			NumeroTelephone t=new NumeroTelephone (Type.fixperso,"0667721012");
 			assertEquals(t.getTelephone(),"0667721012");}
 		public void testfonction2() {
-			NumeroTelephone t=new NumeroTelephone (Type.fix_perso,"0667721012");
-			assertEquals(t.getType(),Type.fix_perso);}
+			NumeroTelephone t=new NumeroTelephone (Type.fixperso,"0667721012");
+			assertEquals(t.getType(),Type.fixperso);}
 		@Test()
 		public void testdatedenaissane() {
 			assertEquals(personne.getDateNaissance(),LocalDate.parse("1997-04-22"));
